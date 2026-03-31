@@ -102,13 +102,20 @@ Will first look for the path + file given in the local [`/archives/` folder](/ht
 ## Deployment
 This project consists of a single `Dockerfile` derived from [the official NGINX Docker image](https://hub.docker.com/_/nginx), which can be deployed on any docker-compatible machine. 
 
-### Example
+### Fly.io Example
 The following example describes the process of deploying `wacz-exhibitor` on [fly.io](https://fly.io), a platform-as-a-service provider. 
 1. `nginx.conf` needs to be edited. See comments starting with `EDIT:` in the document for instructions.
 2. Install the [`flyctl`](https://fly.io/docs/hands-on/install-flyctl/) client and [sign-in](https://fly.io/docs/hands-on/sign-in/), if not already done.
 3. Initialize and deploy the project by running the `flyctl launch` command _(use `flyctl deploy` for subsequent deploys)_. 
 4. `wacz-exhibitor` is now live and visible on the [`fly.io` dashboard](https://fly.io/dashboard). 
 5. We highly recommend setting up a **custom domain and SSL certificate**. This can be done directly from the `fly.io` dashboard. Ideally, the target domain should be a subdomain of the website on which `wacz-exhibitor` iframes are going to be embedded: for example, `www.domain.ext` embedding an `<iframe>` from `wacz.domain.ext`.
+
+### Docker Compose Example
+
+The following example describes the process of deploying `wacz-exhibitor` on your own infrastructure with Docker Compose.
+1. `nginx.conf` needs to be edited. See comments starting with `EDIT:` in the document for instructions.
+2. Run `docker compose up -d`. The `-d` is important! Without it, the service will stop when your terminal session disconnects or you hit CTRL+C.
+3. `wacz-exhibitor` is now accessible on `localhost:8080`
 
 [☝️ Back to summary](#summary)
 
