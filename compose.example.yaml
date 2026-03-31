@@ -1,0 +1,10 @@
+services:
+  wacz-exhibitor:
+    build: .
+    volumes:
+      # Edit the example nginx.conf as needed
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+      # Place your archives in ./archives
+      - ./archives:/usr/share/nginx/html/archives
+    ports:
+      - 80:80
